@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TravelBuddy</string>
+    <string name="Name">Name</string>
+    <string name="Phone">Phone</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="SignIn">Sign In</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="ForgotPassword">Forgot Password</string>
+    <string name="DoNotHaveAnAccount">Don\'t Have An Account?</string>
+    <string name="AlreadyHaveAnAccount">Already Have An Account?</string>
+    <string name="logout">Logout</string>
+    <!--    <string name="NameIsEmpty">Name Is Empty</string>-->
+    <!--    <string name="EmailIsEmpty">Email Is Empty</string>-->
+    <!--    <string name="PasswordIsEmpty">Password Is Empty</string>-->
+</resources>
