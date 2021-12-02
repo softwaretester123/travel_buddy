@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelBuddy">
         <activity
+            android:name=".Reviews"
+            android:exported="false" />
+        <activity
+            android:name=".PlannedTrips"
+            android:exported="false" />
+        <activity
+            android:name=".Restaurants"
+            android:exported="false" />
+        <activity
             android:name=".SearchInMap"
             android:exported="false" />
         <activity

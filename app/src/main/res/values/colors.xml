@@ -13,4 +13,6 @@
     <color name="dark_grey">#393E46</color>
     <color name="dark_blue">#1B57BF</color>
     <color name="pink">#C572FF</color>
+    <color name="red">#FF0000</color>
+    <color name="accent">#afbfcf</color>
 </resources>

@@ -10,6 +10,12 @@
     <string name="DoNotHaveAnAccount">Don\'t Have An Account?</string>
     <string name="AlreadyHaveAnAccount">Already Have An Account?</string>
     <string name="logout">Logout</string>
+    <string name="bangalore">Bangalore</string>
+    <string name="chennai">Chennai</string>
+    <string name="kochi">Kochi</string>
+    <string name="hyderabad">Hyderabad</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <!--    <string name="NameIsEmpty">Name Is Empty</string>-->
     <!--    <string name="EmailIsEmpty">Email Is Empty</string>-->
     <!--    <string name="PasswordIsEmpty">Password Is Empty</string>-->
