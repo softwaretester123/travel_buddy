@@ -1,5 +1,6 @@
 package com.example.travelbuddy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -21,7 +26,29 @@ import java.util.Map;
 class User {
     private String name;
     private String email;
-    private String password;
+    private String phone;
+
+    public User() {
+
+    }
+
+    public User(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 }
 
 public class SignUpActivity extends AppCompatActivity {
@@ -52,6 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
         sign_in = findViewById(R.id.sign_in);
         phoneField = findViewById(R.id.phone);
 
+        fire_store = FirebaseFirestore.getInstance();
 
         sign_up.setOnClickListener(v -> {
             String name = nameField.getText().toString().trim();
@@ -68,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                 phoneField.setError("Phone is Empty");
             }
 
-            if (phone.length() <= 10) {
+            if (phone.length() != 10) {
                 phoneField.setError("Phone must be at least 10 characters");
             }
 
@@ -90,12 +118,25 @@ public class SignUpActivity extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(T -> {
                 if (T.isSuccessful()) {
                     userId = auth.getCurrentUser().getUid();
-                    DocumentReference dr = fire_store.collection("users").document(userId);
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("name", name);
-                    user.put("email", email);
-                    user.put("phone", phone);
 
+                    User newUser = new User(name, email, phone);
+                    Map<String, Object> userData = new HashMap<>();
+                    userData.put(userId, newUser);
+
+                    fire_store.collection("users").document(userId)
+                            .set(newUser)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Success", "DocumentSnapshot successfully written!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("Error", "Error writing document", e);
+                                }
+                            });
                     Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), SignInActivity.class));
                     finish();

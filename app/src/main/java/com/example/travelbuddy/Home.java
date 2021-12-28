@@ -14,18 +14,33 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.analytics.ecommerce.Product;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class Home extends AppCompatActivity {
 
     TextView welcomeText;
     Button logout;
-    Button searchButton;
+    Button searchButton, karnataka, andhra, tamilnadu, kerala;
     FirebaseAuth auth;
     Button drawerOpenButton;
+    FirebaseFirestore fire_store;
 
+    public static User u;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     NavigationView navView;
@@ -35,13 +50,30 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         auth = FirebaseAuth.getInstance();
-        String user = auth.getCurrentUser().getEmail();
+        fire_store = FirebaseFirestore.getInstance();
+
+        String userId = auth.getCurrentUser().getUid();
         drawerOpenButton = findViewById(R.id.drawer_open_btn);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        karnataka = findViewById(R.id.karnataka);
+        andhra = findViewById(R.id.andhra);
+        tamilnadu = findViewById(R.id.tamilnadu);
+        kerala = findViewById(R.id.kerala);
+
+        karnataka.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), Karnataka.class);
+            startActivity(i);
+        });
+
+        andhra.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), Andhra.class);
+            startActivity(i);
+        });
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -72,7 +104,29 @@ public class Home extends AppCompatActivity {
 
         drawerOpenButton.setOnClickListener(v -> {
             welcomeText = findViewById(R.id.welcome_text);
-            welcomeText.setText("Welcome "+user);
+            Log.v("user", "" + userId);
+            u = new User();
+
+            Map<String, Object> userData = new HashMap<>();
+
+            fire_store.collection("users").document(userId)
+                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists()) {
+                        String name = documentSnapshot.getString("name");
+                        welcomeText.setText("Welcome " + name);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Document Does not exist", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
+                }
+            });
+
             drawerLayout.open();
         });
 
@@ -86,7 +140,7 @@ public class Home extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(v -> {
 
-            Log.v("User", user);
+            Log.v("User", "Paramesh");
             auth.signOut();
             Toast.makeText(Home.this, "Signed Out", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), SignInActivity.class));

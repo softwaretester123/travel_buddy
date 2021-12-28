@@ -92,6 +92,7 @@ public class SearchInMap extends AppCompatActivity {
             Place selectedPlace = result_items.get(position);
             Intent intent = new Intent(Intent.ACTION_VIEW);
 //            intent.setData(Uri.parse("geo:"+selectedPlace.getLat()+", "+selectedPlace.getLon()+""));
+            Log.d("COORDS LON-LAT", ""+selectedPlace.getLon()+"---"+selectedPlace.getLat());
             intent.setData(Uri.parse("geo:<" + selectedPlace.getLat() + ">,<" + selectedPlace.getLon() + ">?q=<" + selectedPlace.getLat() + ">,<" + selectedPlace.getLon() + ">(" + selectedPlace.getName() + ")"));
             intent.setPackage("com.google.android.apps.maps");
             startActivity(intent);

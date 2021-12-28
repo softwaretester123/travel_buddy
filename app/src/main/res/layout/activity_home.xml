@@ -85,6 +85,7 @@
                         android:textSize="30sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/karnataka"
                         android:layout_width="350dp"
                         android:layout_height="225dp"
                         android:layout_marginBottom="30dp"
@@ -100,6 +101,7 @@
                         android:textSize="30sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/andhra"
                         android:layout_width="350dp"
                         android:layout_height="225dp"
                         android:layout_marginBottom="30dp"
@@ -114,6 +116,7 @@
                         android:textSize="30sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/tamilnadu"
                         android:layout_width="350dp"
                         android:layout_height="225dp"
                         android:layout_marginBottom="30dp"
@@ -128,6 +131,7 @@
                         android:textSize="30sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/kerala"
                         android:layout_width="350dp"
                         android:layout_height="225dp"
                         android:layout_marginBottom="30dp"
