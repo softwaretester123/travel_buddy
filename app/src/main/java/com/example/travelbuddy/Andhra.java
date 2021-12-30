@@ -65,9 +65,10 @@ public class Andhra extends AppCompatActivity {
                     Log.d("TAG", "ID: " + id);
 
                     assert state != null;
-                    if (state.equals("Andhra"))
+                    if (state.equals("Andhra")) {
                         placesList.add(new PlaceModelClass(id, url, name, description, lon, lat));
-                    adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
+                    }
                 }
 
                 Log.d("TAG", placesList.get(0).getPlace_name());

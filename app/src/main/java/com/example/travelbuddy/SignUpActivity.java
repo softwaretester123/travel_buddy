@@ -20,13 +20,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class User {
     private String name;
     private String email;
     private String phone;
+    private List<String> planned_trips;
+    private List<String> planned_dates;
 
     public User() {
 
@@ -36,6 +40,8 @@ class User {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.planned_trips = new ArrayList<>();
+        this.planned_dates = new ArrayList<>();
     }
 
     public String getName() {
@@ -46,8 +52,36 @@ class User {
         return email;
     }
 
+    public List<String> getPlanned_trips() {
+        return planned_trips;
+    }
+
+    public List<String> getPlanned_dates() {
+        return planned_dates;
+    }
+
     public String getPhone() {
         return phone;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setPlanned_trips(List<String> planned_trips) {
+        this.planned_trips = planned_trips;
+    }
+
+    public void setPlanned_dates(List<String> planned_dates) {
+        this.planned_dates = planned_dates;
     }
 }
 

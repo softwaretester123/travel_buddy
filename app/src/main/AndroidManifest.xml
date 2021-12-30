@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelBuddy">
         <activity
+            android:name=".Kerala"
+            android:exported="false" />
+        <activity
+            android:name=".TamilNadu"
+            android:exported="false" />
+        <activity
             android:name=".Andhra"
             android:exported="false" />
         <activity
