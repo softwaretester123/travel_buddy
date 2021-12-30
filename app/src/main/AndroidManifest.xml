@@ -34,7 +34,7 @@
             android:name=".PlannedTrips"
             android:exported="false" />
         <activity
-            android:name=".Restaurants"
+            android:name=".AboutUs"
             android:exported="false" />
         <activity
             android:name=".SearchInMap"
