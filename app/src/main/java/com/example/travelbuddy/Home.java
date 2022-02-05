@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        karnataka = findViewById(R.id.karnataka);
+        karnataka = findViewById(R.id.front);
         andhra = findViewById(R.id.andhra);
         tamilnadu = findViewById(R.id.tamilnadu);
         kerala = findViewById(R.id.kerala);
@@ -65,6 +65,16 @@ public class Home extends AppCompatActivity {
 
         andhra.setOnClickListener(v -> {
             Intent i = new Intent(getApplicationContext(), Andhra.class);
+            startActivity(i);
+        });
+
+        tamilnadu.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), TamilNadu.class);
+            startActivity(i);
+        });
+
+        kerala.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), Kerala.class);
             startActivity(i);
         });
 

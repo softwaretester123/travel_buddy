@@ -65,7 +65,7 @@ public class TamilNadu extends AppCompatActivity {
                     Log.d("TAG", "ID: " + id);
 
                     assert state != null;
-                    if (state.equals("Karnataka"))
+                    if (state.equals("TamilNadu"))
                         placesList.add(new PlaceModelClass(id, url, name, description, lon, lat));
                     adapter.notifyDataSetChanged();
                 }

@@ -32,6 +32,18 @@
         <entry key="..\:/Workspaces/AndroidStudioProjects/TravelBuddy/app/src/main/res/layout/planned_trips_item_design.xml" value="0.1675213675213675" />
         <entry key="..\:/Workspaces/AndroidStudioProjects/TravelBuddy/app/src/main/res/menu/drawer_menu.xml" value="0.29743589743589743" />
         <entry key="..\:/Workspaces/AndroidStudioProjects/TravelBuddy/app/src/main/res/menu/nav_drawer_menu.xml" value="0.16623931623931623" />
+        <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/activity_frontpage.xml" value="0.17712177121771217" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_karnataka.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/activity_kerala.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/activity_place_view.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_planned_trips.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.11458333333333333" />
+        <entry key="app/src/main/res/layout/place_item_design.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/planned_trips_item_design.xml" value="0.2" />
       </map>
     </option>
   </component>

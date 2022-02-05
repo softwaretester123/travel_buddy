@@ -2,27 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#8A5E91">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginVertical="2dp"
-        android:background="#111111">
+        android:background="#67DC3D">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/place_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             app:cardCornerRadius="20dp">
 
             <ImageView
                 android:id="@+id/image_view"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="centerInside"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:src="@drawable/bang">
 
             </ImageView>
@@ -30,13 +31,23 @@
 
         <TextView
             android:id="@+id/place_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="170dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="198dp"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="43dp"
+            android:layout_marginBottom="97dp"
+            android:background="#1CC5B8"
             android:text="Place 1 Name"
-            android:textColor="#ffffff"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textColor="#FF5722"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
